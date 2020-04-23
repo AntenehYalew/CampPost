@@ -358,6 +358,14 @@ margin: 3rem 4rem 0 4rem;
     margin-left: 0;
 }
 
+.footer-right{
+  display: none;
+}
+.footer-left{
+
+    width: 100%;
+}
+
 }
 
 @media only all and (max-width: 575px) {
