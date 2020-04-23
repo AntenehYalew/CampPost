@@ -1,0 +1,119 @@
+<%- include("../partials/header") %> 
+
+<div class="container" >
+    <h3 class="display-4 text-center indexheadline"> All CampPosts</h3>
+<div class="row">      
+   <%    for(var i=0; i<allPosts.length; i++){%>
+    <div class="col-md-4 col-6 indexcards"> 
+        <div class="card">
+
+        <% if(allPosts[i].images.length<1) {%>
+            <a href="/showcampbook/<%=allPosts[i]._id%>"><img src="<%= //allPosts[i].images[0].imageUrl%>"  class="card-img-top card-img-index" alt="IMAGE NOT UPLOADED" srcset=""></a>
+        <%}else{%>
+            <a href="/showcampbook/<%=allPosts[i]._id%>"><img src="<%= allPosts[i].images[0].imageUrl%>"  class="card-img-top card-img-index" alt="IMAGE" srcset=""></a>
+        <%}%> 
+            
+
+            <div class="card-body">
+                <div>
+                    <h5 class="card-title"><%= allPosts[i].title %> </h5> 
+                    <p><small class="geoaddress"><%= allPosts[i].geoAddress %>  </small></p>
+                </div>
+    
+            <div>
+                <% let remainder = allPosts[i].avgRating % 1   %> 
+                <% if(remainder===0){%>
+                  <h6 class="d-flex justify-content-end">
+                    <% for(var ii =1; ii<=allPosts[i].avgRating; ii++){%>
+                      <i class="fas fa-star ratestars"></i>
+                       <% }%> 
+                        <% for(var ii=allPosts[i].avgRating+1; ii<=5; ii++){%>
+                        <i class="far fa-star ratestars"></i>
+                        <% }  %> 
+                      </h6>
+                <% }else{%>
+                  <h6 class="d-flex justify-content-end">
+                    <% for(var ii =1; ii<=allPosts[i].avgRating-remainder; ii++){%>
+                      <i class="fas fa-star ratestars"></i>
+                       <%}%> 
+                       <i class="fas fa-star-half-alt ratestars"></i>
+                        <% for(var ii=allPosts[i].avgRating+1; ii<=5; ii++){%>
+                        <i class="far fa-star ratestars"></i>
+                        <% }  %> 
+                      </h6>
+                      
+                <% } %>
+                <div class="d-flex justify-content-end">
+                    <% if(allPosts[i].comment.length <2){%>
+                        <small><%= allPosts[i].comment.length %> review  </small>
+                    <%}else{%>
+                        <small><%= allPosts[i].comment.length %> reviews </small>
+                    <%}  %> 
+                </div>
+            </div>
+    
+
+                <h6 class="card-subtitle mb-2"><%= allPosts[i].city %> </h6>
+                 <% if((allPosts[i].campnote).length<100){%>
+                  <p class="card-text"><%=allPosts[i].campnote %>  </p>
+                    <% }else{ %>
+                        <p class="card-text"><%=(allPosts[i].campnote).slice(0,100)%> ... <a href="/showcampbook/<%=allPosts[i]._id%>"><button class="btn">Read more</button>  </a> </p>
+                        <% }  %>
+            </div>
+            <div class="card-footer card-footer-index">
+                <% if( ((allPosts[i].createdAt).toString()).substring(3,15) != ((allPosts[i].updatedAt).toString()).substring(3,15) ){%>
+                    <small >Updated on <%=((allPosts[i].updatedAt).toString()).substring(3,15) %> </small>
+            <%}else{%>
+                <small >Posted on <%= ((allPosts[i].createdAt).toString()).substring(3,15)  %>  </small>
+            <%}%> 
+            
+              </div>
+
+        </div>
+    </div>
+    <%  }%>
+    
+
+</div>
+
+
+<nav aria-label="Page navigation example">
+    <ul class="pagination justify-content-end">
+        <% if(dozens === 0){%>
+            <% if(allPosts.length<12){%>
+
+            <%}else{%>
+                <li class="page-item">
+                    <a class="page-link" href="/showallcampbooks/<%=dozens+12%>" ><i class="fas fa-forward"></i></a>
+                </li>
+            <%}%>
+         
+        <%}else{%>
+
+            <% if(allPosts.length<12){%>
+                <li class="page-item">
+                    <a class="page-link" href="/showallcampbooks/<%=dozens-12%>"><i class="fas fa-backward"></i></a>
+                </li>
+            <%} else{%>
+                <li class="page-item">
+                    <a class="page-link" href="/showallcampbooks/<%=dozens-12%>"><i class="fas fa-backward"></i></a>
+                </li>
+               <li class="page-item">
+                <a class="page-link" href="/showallcampbooks/<%=dozens+12%>"><i class="fas fa-forward"></i></a>
+              </li>
+            <%}%> 
+        
+        <% } %> 
+
+
+
+  
+    </ul>
+  </nav>
+
+
+
+<%- include("../partials/footer") %> 
+
+
+

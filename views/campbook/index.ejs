@@ -1,0 +1,187 @@
+<%- include("../partials/header") %> 
+
+<div class="jumbotron">
+            <div class=" d-flex justify-content-center cbindexsearch">
+                <form class="form-inline" action="/newcampbook" method="get">
+                    <button type="submit" class="btn btn-addnewcamppost">Wanna Add Your CampPost? </button>
+                </form>
+                
+            </div>
+</div>
+
+<div class="container" >
+    <h3 class="display-4 text-center indexheadline"> Recent Posts</h3>
+<div class="row">      
+   <%    for(var i=0; i<6; i++){%>
+    <div class="col-md-4 col-6 indexcards"> 
+        <div class="card">
+
+      
+
+
+        <% if(allcbcg[i].images.length<1) {%>
+            <a href="showcampbook/<%=allcbcg[i]._id%>"><img src="<%= //allcbcg[i].images[0].imageUrl%>"  class="card-img-top card-img-index" alt="IMAGE NOT UPLOADED" srcset=""></a>
+        <%}else{%>
+            <a href="showcampbook/<%=allcbcg[i]._id%>"><img src="<%= allcbcg[i].images[0].imageUrl%>"  class="card-img-top card-img-index" alt="IMAGE" srcset=""></a>
+        <%}%> 
+            
+
+
+
+
+            <div class="card-body">
+                <div>
+                    <h5 class="card-title"><%= allcbcg[i].title %> </h5> 
+                    <p><small class="geoaddress"><%= allcbcg[i].geoAddress %>  </small></p>
+                </div>
+    
+            <div>
+                <% let remainder = allcbcg[i].avgRating % 1   %> 
+                <% if(remainder===0){%>
+                  <h6 class="d-flex justify-content-end">
+                    <% for(var ii =1; ii<=allcbcg[i].avgRating; ii++){%>
+                      <i class="fas fa-star ratestars"></i>
+                       <% }%> 
+                        <% for(var ii=allcbcg[i].avgRating+1; ii<=5; ii++){%>
+                        <i class="far fa-star ratestars"></i>
+                        <% }  %> 
+                      </h6>
+                <% }else{%>
+                  <h6 class="d-flex justify-content-end">
+                    <% for(var ii =1; ii<=allcbcg[i].avgRating-remainder; ii++){%>
+                      <i class="fas fa-star ratestars"></i>
+                       <%}%> 
+                       <i class="fas fa-star-half-alt ratestars"></i>
+                        <% for(var ii=allcbcg[i].avgRating+1; ii<=5; ii++){%>
+                        <i class="far fa-star ratestars"></i>
+                        <% }  %> 
+                      </h6>
+                      
+                <% } %>
+                <div class="d-flex justify-content-end">
+                    <% if(allcbcg[i].comment.length <2){%>
+                        <small><%= allcbcg[i].comment.length %> review  </small>
+                    <%}else{%>
+                        <small><%= allcbcg[i].comment.length %> reviews </small>
+                    <%}  %> 
+                </div>
+            </div>
+
+
+              
+               
+
+                <h6 class="card-subtitle mb-2"><%= allcbcg[i].city %> </h6>
+                 <% if((allcbcg[i].campnote).length<100){%>
+                  <p class="card-text"><%=allcbcg[i].campnote %>  </p>
+                    <% }else{ %>
+                        <p class="card-text"><%=(allcbcg[i].campnote).slice(0,100)%> ... <a href="showcampbook/<%=allcbcg[i]._id%>"><button class="btn">Read more</button>  </a> </p>
+                        <% }  %>
+            </div>
+            <div class="card-footer card-footer-index">
+                <% if( ((allcbcg[i].createdAt).toString()).substring(3,15) != ((allcbcg[i].updatedAt).toString()).substring(3,15) ){%>
+                    <small >Updated on <%=((allcbcg[i].updatedAt).toString()).substring(3,15) %> </small>
+            <%}else{%>
+                <small >Posted on <%= ((allcbcg[i].createdAt).toString()).substring(3,15)  %>  </small>
+            <%}%> 
+            
+              </div>
+
+        </div>
+    </div>
+    <%  }%>
+    
+
+</div>
+
+
+
+</div>
+
+
+<div class="container">
+    <div class="seeallposts">
+        <a href="/showallcampbooks/0" class="btn btn-lg btn-block">See All CampPosts</a>
+    </div>
+
+</div>
+
+
+
+<!-- Most Liked -->
+
+<div class="container container-mostliked" >
+    <h4 class="text-center indexheadline"> <i class="far ratestars fa-star fa-sm"></i><i class="far ratestars fa-star fa-lg"></i><i class="far ratestars fa-star fa-2x"></i><span class="display-4"> Most Liked Posts</span> <i class="far ratestars fa-star fa-2x"></i><i class="far ratestars fa-star fa-lg"></i><i class="far ratestars fa-star fa-sm"></i></h4>
+    <div class="row">
+        <%    for(var i=0; i<6; i++){%>
+            <div class="col-md-4 col-6 indexcards "> 
+                <div class="card ">
+                    <% if(toprated[i].images.length<1) {%>
+                        <a href="showcampbook/<%=toprated[i]._id%>"><img src="<%= //toprated[i].images[0].imageUrl%>"  class="card-img-top card-img-index" alt="IMAGE NOT UPLOADED" srcset=""></a>
+                    <%}else{%>
+                        <a href="showcampbook/<%=toprated[i]._id%>"><img src="<%= toprated[i].images[0].imageUrl%>"  class="card-img-top card-img-index" alt="IMAGE" srcset=""></a>
+                    <%}%> 
+                      <div class="card-body">
+                        <h5 class="card-title"><%= toprated[i].title %> </h5>
+                        <p><small class="geoaddress"><%= toprated[i].geoAddress %>  </small></p>
+
+    
+
+                        <% let remainder = toprated[i].avgRating % 1   %> 
+                        <% if(remainder===0){%>
+                          <h5 class="d-flex justify-content-end">
+                            <% for(var ii =1; ii<=toprated[i].avgRating; ii++){%>
+                              <i class="fas fa-star ratestars"></i>
+                               <% }%> 
+                                <% for(var ii=toprated[i].avgRating+1; ii<=5; ii++){%>
+                                <i class="far fa-star ratestars"></i>
+                                <% }  %> 
+                              </h5>
+                        <% }else{%>
+                          <h5 class="d-flex justify-content-end">
+                            <% for(var ii =1; ii<=toprated[i].avgRating-remainder; ii++){%>
+                              <i class="fas fa-star ratestars"></i>
+                               <%}%> 
+                               <i class="fas fa-star-half-alt ratestars"></i>
+                                <% for(var ii=toprated[i].avgRating+1; ii<=5; ii++){%>
+                                <i class="far fa-star ratestars"></i>
+                                <% }  %> 
+                              </h5>
+                        <% } %>
+                        <div class="d-flex justify-content-end">
+                            <% if(toprated[i].comment.length <2){%>
+                                <small class=""><%= toprated[i].comment.length %> review  </small>
+                            <%}else{%>
+                                <small class=""><%= toprated[i].comment.length %> reviews </small>
+                            <%}  %> 
+                        </div>
+
+                       <!--  <p><%= //toprated[i].avgRating %> </p> -->
+              
+                    
+                        
+                   
+                        <h6 class="card-subtitle mb-2 "><%= toprated[i].city %> </h6>
+                        <% if((toprated[i].campnote).length<100){%>
+                            <p class="card-text"><%=toprated[i].campnote %>  </p>
+                              <% }else{ %>
+                                  <p class="card-text"><%=(toprated[i].campnote).slice(0,100)%> ... <a href="showcampbook/<%=toprated[i]._id%>"><button class="btn">Read more</button>  </a> </p>
+                                  <% }  %>
+                    </div>
+                    <div class="card-footer card-footer-index">
+                        <% if( ((toprated[i].createdAt).toString()).substring(3,15) != ((toprated[i].updatedAt).toString()).substring(3,15) ){%>
+                            <small>Updated on <%=((toprated[i].updatedAt).toString()).substring(3,15) %> </small>
+                    <%}else{%>
+                        <small>Posted on <%= ((toprated[i].createdAt).toString()).substring(3,15)  %>  </small>
+                    <%}%> 
+                    
+                      </div>
+
+                </div>
+            </div>
+            <%  }%>
+    </div>
+</div>
+
+
+<%- include("../partials/footer") %> 

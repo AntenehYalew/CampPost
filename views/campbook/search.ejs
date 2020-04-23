@@ -1,0 +1,89 @@
+<%- include("../partials/header") %> 
+
+<div class="container" >
+    <h3 class="display-4 text-center indexheadline"> All Camp posts</h3>
+<div class="row">      
+   <%    for(var i=0; i<searchResults.length; i++){%>
+    <div class="col-md-4 col-6 indexcards"> 
+        <div class="card">
+
+        <% if(searchResults[i].images.length<1) {%>
+            <a href="showcampbook/<%=searchResults[i]._id%>"><img src="<%= //searchResults[i].images[0].imageUrl%>"  class="card-img-top card-img-index" alt="IMAGE NOT UPLOADED" srcset=""></a>
+        <%}else{%>
+            <a href="showcampbook/<%=searchResults[i]._id%>"><img src="<%= searchResults[i].images[0].imageUrl%>"  class="card-img-top card-img-index" alt="IMAGE" srcset=""></a>
+        <%}%> 
+            
+
+            <div class="card-body">
+                <div>
+                    <h5 class="card-title"><%= searchResults[i].title %> </h5> 
+                    <p><small class="geoaddress"><%= searchResults[i].geoAddress %>  </small></p>
+                </div>
+    
+            <div>
+                <% let remainder = searchResults[i].avgRating % 1   %> 
+                <% if(remainder===0){%>
+                  <h6 class="d-flex justify-content-end">
+                    <% for(var ii =1; ii<=searchResults[i].avgRating; ii++){%>
+                      <i class="fas fa-star ratestars"></i>
+                       <% }%> 
+                        <% for(var ii=searchResults[i].avgRating+1; ii<=5; ii++){%>
+                        <i class="far fa-star ratestars"></i>
+                        <% }  %> 
+                      </h6>
+                <% }else{%>
+                  <h6 class="d-flex justify-content-end">
+                    <% for(var ii =1; ii<=searchResults[i].avgRating-remainder; ii++){%>
+                      <i class="fas fa-star ratestars"></i>
+                       <%}%> 
+                       <i class="fas fa-star-half-alt ratestars"></i>
+                        <% for(var ii=searchResults[i].avgRating+1; ii<=5; ii++){%>
+                        <i class="far fa-star ratestars"></i>
+                        <% }  %> 
+                      </h6>
+                      
+                <% } %>
+                <div class="d-flex justify-content-end">
+                    <% if(searchResults[i].comment.length <2){%>
+                        <small><%= searchResults[i].comment.length %> review  </small>
+                    <%}else{%>
+                        <small><%= searchResults[i].comment.length %> reviews </small>
+                    <%}  %> 
+                </div>
+            </div>
+
+
+              
+               
+
+                <h6 class="card-subtitle mb-2"><%= searchResults[i].city %> </h6>
+                 <% if((searchResults[i].campnote).length<100){%>
+                  <p class="card-text"><%=searchResults[i].campnote %>  </p>
+                    <% }else{ %>
+                        <p class="card-text"><%=(searchResults[i].campnote).slice(0,100)%> ... <a href="showcampbook/<%=searchResults[i]._id%>"><button class="btn">Read more</button>  </a> </p>
+                        <% }  %>
+            </div>
+            <div class="card-footer card-footer-index">
+                <% if( ((searchResults[i].createdAt).toString()).substring(3,15) != ((searchResults[i].updatedAt).toString()).substring(3,15) ){%>
+                    <small >Updated on <%=((searchResults[i].updatedAt).toString()).substring(3,15) %> </small>
+            <%}else{%>
+                <small >Posted on <%= ((searchResults[i].createdAt).toString()).substring(3,15)  %>  </small>
+            <%}%> 
+            
+              </div>
+
+        </div>
+    </div>
+    <%  }%>
+    
+
+</div>
+</div>
+
+
+
+
+<%- include("../partials/footer") %> 
+
+
+

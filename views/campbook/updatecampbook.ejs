@@ -1,0 +1,110 @@
+<%- include ("../partials/header") %> 
+
+<div class="container">
+
+  
+    <div class="text-center ">
+        <h1 class="newcbcgh1">Updating Your Campbook Post</h1>
+        <div class="row">    
+            <% selectedPost.images.forEach(e => {%>
+                   <div class="col-3 card-update"> 
+                    <div class="card">
+                        <form action="/updatecamppost/<%=selectedPost._id%>/<%=e._id%>?_method=DELETE" method="POST">
+                            <img src="<%= e.imageUrl %>" class="card-img-top card-img-update" alt="IMAGE NOT UPLOADED" srcset="">
+                            <button class="btn imgUpdatebtn" type="submit"><i class="fas fa-trash-alt crud-icon"></i></button>
+                        </form>
+                    </div>
+                </div>
+            <% })%>
+       </div>
+        <form action="/updatecamppost/<%=selectedPost._id%>?_method=PUT" method="POST" class="newcbcg" enctype="multipart/form-data">
+            <div class="form-group">
+                <input type="text" class="form-control" name="title" id="" value="<%=selectedPost.title%>" required>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="siteName" id="" value="<%=selectedPost.siteName%>" required>
+            </div>
+            <div class="form-group">
+                <input id="autocomplete" class="form-control"  name="geoAddress"
+                placeholder="Enter the location"
+                onFocus="geolocate()"
+                type="text"  required value="<%= selectedPost.geoAddress %> ">
+            </div>
+
+            <div class="form-group">
+                <div class="custom-file" >
+                    <input type="file" class="custom-file-input" name="image" id="customFile" accept="image/*" multiple="multiple" value="<%=selectedPost.images%>" <% if(selectedPost.images.length ===0){%> required <%} %> >
+                    <label class="custom-file-label" for="customFile">Images to Upload</label>
+                </div>
+                </div>
+                <div class="form-group" id = "newformImg">
+                    
+                </div>
+
+
+            <div class="form-group">
+                <textarea rows="10" form="Test" class="form-control" name="campnote" id="" value="" required ><%=selectedPost.campnote%> </textarea>
+            </div>
+            <div class="form-group">
+                <div class="rating" >    
+                    <i class="far fa-star fa-2x ratingstars"></i>
+                    <i class="far fa-star fa-2x ratingstars"></i>
+                    <i class="far fa-star fa-2x ratingstars"></i>
+                    <i class="far fa-star fa-2x ratingstars"></i>
+                    <i class="far fa-star fa-2x ratingstars"></i>
+                    <input id="rate" type="number" class="form-control" name="rating" max="5" min="1" value="<%=selectedPost.rating%>" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-lg btn-addnewcamppost btn-block">Update Your CampPost </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+<!-- 
+<script>
+
+    if(document.getElementById("autocomplete") != null){
+        var placeSearch, autocomplete;
+    
+    function initAutocomplete() {
+      autocomplete = new google.maps.places.Autocomplete(
+          document.getElementById('autocomplete'), {types: ['geocode']});
+    
+      autocomplete.setFields(['address_component']);
+
+    }
+
+    // Bias the autocomplete object to the user's geographical location,
+    // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var geolocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          var circle = new google.maps.Circle(
+              {center: geolocation, radius: position.coords.accuracy});
+          autocomplete.setBounds(circle.getBounds());
+        });
+      }
+    }
+    }
+
+
+
+ </script> -->
+
+
+<!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHOc9sXpsTIfTd27ARfuBsNtZWGPAAhiM&libraries=places&callback=initAutocomplete"
+async defer></script>
+ -->
+
+
+
+<%- include("../partials/footer") %> 

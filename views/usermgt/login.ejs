@@ -1,0 +1,28 @@
+<%- include("../partials/header")  %>
+
+<div class="container">
+  <% if(originalUrl != "/"){ %> 
+     <div class="alert alert-danger" role="alert">
+         <%= message %>
+       </div>
+  <% } %>
+
+   
+   
+</div>
+
+
+<form class="form-signin" action="/login" method="post">
+    <h1 class="h3 mb-3 font-weight-normal"> Log in to your CampBook </h1>
+    <% if(originalUrl){%>
+<input type="text" name="originalUrl" id="" value="<%=originalUrl%>" hidden>
+    <%}  %> 
+    
+    <input type="text"  class="form-control" name="username" placeholder="User Name" required>
+    <input type="password" class="form-control" name="password" placeholder="Password" required>
+    <button type="submit" class="btn btn-lg btn-block btn-addnewcamppost"> Log In </button>
+  </form>
+
+
+
+<%- include("../partials/footer")  %> 

@@ -1,0 +1,443 @@
+.cbnavbar, .cbnavbar .navbar-brand, .cbnavbar .navbar-nav .nav-link{ background-color:  black;
+            color: white;
+    }
+
+.cbnavbar .navbar-brand:hover, .cbnavbar .navbar-nav .nav-link:hover{ 
+        color:black;
+        background-color: white;
+        border-radius: 8px;
+      
+}
+.cbnavbar .navbar-nav .nav-item .btn {
+    border-color:white ;
+    color: white;
+}
+.cbnavbar .navbar-nav .nav-item .btn:hover {
+    border-color:white ;
+    color: black;
+    background-color: white;
+}
+
+.navbar-toggler{
+    background-color: white;
+}
+
+.nav-search{
+    margin-left: 4rem;
+}
+
+
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: 7rem auto;
+
+  }
+  .form-signin .form-control {
+    position: relative;
+    box-sizing: border-box;
+    height: auto;
+    padding: 10px;
+    font-size: 16px;
+  }
+  .form-signin .form-control:focus {
+    z-index: 2;
+  }
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+
+
+body{
+    font-family: 'PT Sans', sans-serif;
+    background-color: #d1e0e0;
+}
+
+.jumbotron{
+    height: 570px;
+    
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+     -o-background-size: cover;
+      background-size: cover;
+    background-image: url("https://images.unsplash.com/photo-1584400720959-93d6b14d96a3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=977&q=80");
+
+}
+
+
+
+ .cbindexsearch{
+    padding-top: 20%;
+    text-align: center;
+    position: relative;
+}
+.card-img-index{
+    max-height: 232.422px ;
+
+}
+.card-img-update{
+    max-height: 171.65px;
+}
+
+.card-update{
+    margin-top: 1%;
+}
+.card-update:hover .imgUpdatebtn{
+   display: inline;
+}
+.card-img-top{
+    border-bottom: 1px solid rgba(0,0,0,.125);
+
+}
+
+.seeallposts{
+margin: 3rem 4rem 0 4rem;
+}
+.seeallposts a{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.seeallposts a:hover{
+    background-color: black;
+    color: white;
+    border: 1px solid white;
+}
+
+.newcbcg{
+    width: 70%;
+    position: relative;
+    text-align: center;
+    margin: auto;
+    margin-top: 5%;
+}
+.newcbcgh1{
+    margin-top: 5%;
+}
+
+#newformImg img{
+    width: 100px;
+    height: 100px;
+    margin: 0.2rem;
+}
+#rate{
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.card{
+    background-color: black;
+    color: white;
+}
+
+.card-body-commentsection{
+    border-top: 1px solid #5d5d5e;
+}
+.showcb{
+    margin-left: 4%;
+    margin-right: 4%;
+    width: auto;
+}
+
+.showcbsticky{
+    position:sticky;
+    top:5px;
+    padding-top: 10px;
+    z-index:1012;
+    height:0;    
+    
+}
+
+.showimage-box{
+
+    background-color: black;
+    min-height: 50px;
+    color: white;
+}
+.showimage-img{
+    width: 100%;
+    object-fit: contain;
+}
+
+.imgUpdatebtn{
+    position: absolute;
+    top:0;
+    left:0;
+    display: none;
+    background-color: black;
+    border: 1px solid white;
+    color: white;   
+}
+
+
+ .indexcards{
+    margin-top: 2%;
+}
+
+.indexheadline{
+    padding: 2%;
+}
+.container-mostliked{
+    margin-top: 2rem;
+}
+
+.maincontainer{
+    min-height: 100vh;
+    position: relative;
+    padding-bottom: 200px;
+}
+
+.pagination{
+    margin-top: 3rem;
+}
+
+.page-link{
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+}
+
+.page-link:hover{
+    background-color: black;
+    color: white;
+
+}
+ .crud-icon{
+    color: white;
+   }
+   
+   .ratestars{
+       color: #FF8C00	;
+   }
+   
+   #map {
+       height:300px;
+       width: 100%;
+     }
+   
+   .side-bar{
+       border-radius: 4px;
+       border-color: #eeeeef;
+       vertical-align: baseline;
+       padding: 4px 0;
+       border-bottom: 1px solid #eeeeef;
+   }
+   .side-bar-content{
+       border-spacing: 16px 0;
+       display: table;
+       table-layout: auto;
+   }
+   .side-bar-content h4{
+    text-align: center;
+}
+
+   .side-bar-right{
+       min-height: 120px;
+  
+   }
+  
+   .new-comment{
+       max-width: 70%;
+       margin: auto;
+   }
+
+   .farh{
+       font-size: 1rem;
+       vertical-align: text-top;
+   }
+   
+   .side-bar img{
+       float: left;
+       padding-right: 0.35rem;
+   }
+
+   .cbfooter{
+       background-color:  black;
+       color: white;
+       bottom: 0;
+       width: 100%;
+       height:100px;
+       position: absolute;
+   }
+   
+   .cbfooter p{
+       padding-top: 10px;
+        text-align: center;
+       margin: auto;
+       color: rgb(145, 142, 142);
+   }
+   .footer-right{
+       float: right;
+       width: 50%;
+   }
+   .footer-left{
+       float: left;
+       border-right: 1px solid #eeeeef;
+       width: 50%;
+   }
+   .text-right, .text-left{
+       padding: 0 1rem;
+   }
+   
+   .text-muted{
+       color: white;
+   }
+   .btn-addnewcamppost{
+       background-color: black;
+       color: white;
+       padding: 1rem;
+       font-size: 1.3rem;
+       border-radius: 18px;
+   }
+   .btn-addnewcamppost:hover{
+       border:1px solid black;
+       background-color: white;
+       color: black;
+   }
+   
+   .card-text a, .side-bar a{
+       color: #0080ff;
+   }
+   
+   .card-text .btn{
+       color: #0080ff;
+       padding: 3px 6px;
+   }
+   
+   .card-text .btn:hover{
+     border:1px solid white;
+     background-color: black;
+     color: whitesmoke;
+   }
+   
+   
+   .btn-addnewcomment{
+       background-color: white;
+       color: black;
+   }
+   
+   .btn-addnewcomment:hover{
+       background-color: black;
+       color: white;
+       border-color: white;
+   }
+
+
+@media only all and (max-width: 767px) {
+.container-mostliked .indexheadline .far{
+    display: none; 
+}
+.showcbsticky{
+    display: none;
+}
+
+.jumbotron {
+    height: 275px;
+}
+.card-img-index{
+    max-height: 137px;
+}
+.card-footer-index{
+    display: none;
+}
+
+.geoaddress{
+    display: none;
+}
+.nav-search{
+    margin-left: 0;
+}
+
+}
+
+@media only all and (max-width: 575px) {
+    .showimage-box{
+        height: 273px;
+    }
+    .showimage-img{
+    
+        height: 273px;
+     
+    }
+}
+
+
+@media only all and (min-width: 576px) {
+    .showimage-box{
+        height: 368px;
+    }
+    .showimage-img{
+        height: 368px;
+     
+    }
+}
+
+
+@media only all and (min-width: 768px) {
+    .showimage-box{
+        height: 273px;
+    }
+    .showimage-img{
+        height: 273px;
+    }
+    .card-img-index{
+        max-height: 140px;
+    }
+    .sidebar-image{
+       display: none;   
+    }
+   #map{
+       height: 200px;
+   }
+
+}
+
+
+@media only screen and (min-width: 992px) {
+    .showimage-box{
+        height: 315px;
+    }
+    .showimage-img{
+        height: 315px; 
+    }
+    .card-img-index{
+        max-height: 200px;
+    }
+    .sidebar-image{
+        display: block;   
+     }
+    #map{
+        height: 300px;
+    }
+    .side-bar-right p{
+        font-size: 0.85rem;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    .showimage-box{
+        height: 385px;
+    }
+    .showimage-img{
+        height: 385px; 
+    }
+
+    .card-img-update{
+        max-height: 215.65px;
+    }
+    
+
+}
+
+
+

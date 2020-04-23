@@ -1,0 +1,103 @@
+<%- include ("../partials/header") %> 
+
+<div class="container">
+    <div class="text-center ">
+        <h2 class="newcbcgh1">Share your experiance</br> Let others Know about it</h2>
+        <form action="/newcampbook" method="post" class="newcbcg" enctype="multipart/form-data" id="form-textbox">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="postOwnerId" id="" value="<%=loggedinUser._id%>" hidden >
+                        <input type="text" class="form-control" name="postOwnerName" id="" value="<%=loggedinUser.username%>" hidden >
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="title" id="" placeholder="Post Title" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="siteName" id="" placeholder="Name of Your Camping Site" required>
+                    </div>
+                    <div class="form-group">
+                        <input id="autocomplete" class="form-control"  name="geoAddress"
+                        placeholder="Enter the location"
+                        onFocus="geolocate()"
+                        type="text" required>
+                    </div>
+    
+                    <div class="form-group">
+                        <div class="rating" >    
+                            <i class="far fa-star fa-2x ratingstars"></i>
+                            <i class="far fa-star fa-2x ratingstars"></i>
+                            <i class="far fa-star fa-2x ratingstars"></i>
+                            <i class="far fa-star fa-2x ratingstars"></i>
+                            <i class="far fa-star fa-2x ratingstars"></i>
+                            <input id="rate" type="number" class="form-control" name="rating" max="5" min="1" required>
+                        </div>
+          
+                    </div>
+                </div>
+
+
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <textarea rows="8" form="form-textbox" class="form-control" name="campnote" id="" placeholder="Share your feedback, suggestion and moments here" required></textarea>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="custom-file" >
+                    <input type="file" class="custom-file-input" name="image" id="customFile" accept="image/*" multiple="multiple" required>
+                    <label class="custom-file-label" for="customFile">Images to Upload </label>
+                </div>
+                </div>
+                <div class="form-group" id = "newformImg">
+                    
+                </div>
+               
+      
+            <div class="form-group">
+                <button type="submit" class="btn btn-lg btn-addnewcamppost btn-block">Add Your CampPost </button>
+
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<!-- 
+
+<script>
+
+    if(document.getElementById("autocomplete") != null){
+        var placeSearch, autocomplete;
+    
+    function initAutocomplete() {
+      autocomplete = new google.maps.places.Autocomplete(
+          document.getElementById('autocomplete'), {types: ['geocode']});
+    
+      autocomplete.setFields(['address_component']);
+
+    }
+
+    // Bias the autocomplete object to the user's geographical location,
+    // as supplied by the browser's 'navigator.geolocation' object.
+    function geolocate() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var geolocation = {
+            lat: position.coords.latitude,
+            lng: position.coords.longitude
+          };
+          var circle = new google.maps.Circle(
+              {center: geolocation, radius: position.coords.accuracy});
+          autocomplete.setBounds(circle.getBounds());
+        });
+      }
+    }
+    }
+
+    
+ </script> -->
+
+
+
+<%- include("../partials/footer") %> 

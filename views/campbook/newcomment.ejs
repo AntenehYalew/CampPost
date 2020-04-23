@@ -1,0 +1,36 @@
+<%-include ("../partials/header")  %> 
+
+<div class="container">
+    <div class="text-center new-comment">
+        <h1 class="newcbcgh1">Add Your Comment</h1>
+        <form action="/showcampbook/<%=postId%>/newcomment" method="post" class="newcbcg" id="comment-textbox">
+            <div class="form-group">
+                <input type="text" class="form-control" name="commentAuthor" value="<%=loggedinUser.username%>" id="" hidden>
+            </div>
+            <div class="form-group">
+                <input type="text" class="form-control" name="commentAuthorId" id="" value="<%=loggedinUser._id%>" hidden>
+            </div>
+            <div class="form-group">
+                <textarea rows="10" form="comment-textbox" class="form-control" name="commentDetails" id="" placeholder="Description" required > </textarea>
+            </div>
+            <div class="form-group">
+                <div class="rating" >    
+                    <i class="far fa-star fa-2x ratingstars"></i>
+                    <i class="far fa-star fa-2x ratingstars"></i>
+                    <i class="far fa-star fa-2x ratingstars"></i>
+                    <i class="far fa-star fa-2x ratingstars"></i>
+                    <i class="far fa-star fa-2x ratingstars"></i>
+                    <input id="rate" type="number" class="form-control" name="postRating" max="5" min="1" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-lg btn-addnewcamppost btn-block">Add Your Comment </button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+
+
+<%-include ("../partials/footer")  %> 
