@@ -30,7 +30,7 @@ const express         = require("express"),
 const app = express();
 
 ```
-Follow NPM installation for to install all dependencies
+Follow NPM installation to install all dependencies
 
 ## Author
 
