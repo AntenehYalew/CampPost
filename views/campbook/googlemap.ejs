@@ -1,0 +1,29 @@
+<%- include ("../partials/header")  %>
+
+
+<div id="map">
+    
+</div>
+
+<script>
+
+
+    function initMap() {
+      const centerLat = "<%=JSON.stringify(latlng.lat) %>"
+      const centerLng = "<%=JSON.stringify(latlng.lng) %>"
+      const campLatLang = { lat: parseFloat(centerLat), lng: parseFloat(centerLng) };
+      var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 16,
+        center: campLatLang
+      });
+      var marker = new google.maps.Marker({
+          position: campLatLang,
+          map: map,
+        });
+    }        
+ 
+
+  </script>
+  <script async defer
+  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHOc9sXpsTIfTd27ARfuBsNtZWGPAAhiM&callback=initMap">
+  </script>
