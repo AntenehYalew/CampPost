@@ -11,14 +11,23 @@ It is created using some dependencies and APIs. This project shows a frontend an
 
 Express, NodeJs (Node_modules) are the main languages of this project.
 
-Database is purely mongoose and collections are saved in mongoose atlas.
+Database is purely MongoDB.
 
 API integration is implemented to pull weather information, news and google map.
 
-Images are saved in cloudinary and URLs are passed to this project.
+Images are saved in cloudinary and URLs are passed to the DB project.
 
 The project has dependecies of express, coudinary, ejs, espress-session, formidable, method-override, mongoose, passport, passport-local-mongoose,unirest.
 
+## Development Setup
+
+NPM i express mongoose ejs
+const express         = require("express"),
+      mongoose        = require("mongoose"),
+      ejs             = require("ejs");
+const app = express();
+
+Follow NPM installation for to install all dependencies
 
 ## Author
 

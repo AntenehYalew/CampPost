@@ -87,7 +87,7 @@ app.use(searchRoutes);
 mongoose.Promise=global.Promise;
 
 mongoose.connect("mongodb+srv://APPesha:"+process.env.MONGO_PSWD+"@appesha-rptjg.mongodb.net/campbook?retryWrites=true&w=majority",{useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex:true, useFindAndModify: false}).then(()=>{
-    console.log("Connected to the DB")
+    console.log("Connected to the MongoDb DB")
 }).catch((err)=>{
     console.log(err.message)
 })
@@ -101,5 +101,5 @@ if (port == null || port == "") {
 }
 
 app.listen(port,()=>{
-    console.log("Connected to Server")
+    console.log("Connected to Local Server 3000")
 })
