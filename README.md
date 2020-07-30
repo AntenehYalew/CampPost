@@ -2,6 +2,8 @@
 
 CampBook is an ideal project of combining some aspects of social media into camping 
 
+Here is the test product https://camppost.herokuapp.com/
+
 ## About
 
 It is created using some dependencies and APIs. This project shows a frontend and backend work of a developer.
